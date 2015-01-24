@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var dogYearsLabel: UILabel!
     @IBOutlet weak var inputTextField: UITextField!
-    @IBOutlet weak var convertButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +35,30 @@ class ViewController: UIViewController {
         inputTextField.text = ""
         inputTextField.resignFirstResponder()
         
+    }
+    
+    @IBAction func realYears(sender: UIButton) {
+        var humanYears:NSString
+        var dogYears:Double, humanYearsDouble:Double
+        let m1 = 10.5
+        let m2 = 4
+        
+        humanYears = inputTextField.text
+        humanYearsDouble = humanYears.doubleValue
+        if (humanYearsDouble <= 2) {
+            dogYears = humanYearsDouble*m1
+        }
+        else {
+            dogYears = 2*m1+(humanYearsDouble-2)*4
+        }
+        
+        dogYearsLabel.text = "\(dogYears) real dog years"
+        
+        inputTextField.text = ""
+        inputTextField.resignFirstResponder()
         
     }
+    
 
 }
 
